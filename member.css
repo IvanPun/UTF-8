@@ -61,3 +61,11 @@ img {
     border-radius: 50%;
     margin-top: 20%;
 }
+
+.welcome{
+    font-family: "Brush Script MT", "Brush Script Std", cursive;
+}
+
+.pageName{
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
