@@ -28,5 +28,13 @@
   		navigation: false, // 顯示導行列
   		navigationPosition: "right" // 導行列位置
   	});
+
+    $.ajax({
+        type: "get",
+        url: 'http://192.168.2.108:8080/getMemberContact_WayById/',
+        success: function(data){
+            console.log(data)
+        }
+    })
 </script>
 </html>
