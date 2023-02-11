@@ -1,5 +1,5 @@
-//check
-$("#check").click(function(){
+//chnage
+$("#change").click(function(){
     var name=$("#logname").val();
     var password=$('#logpass').val();
     var email=$('#logemail').val();
