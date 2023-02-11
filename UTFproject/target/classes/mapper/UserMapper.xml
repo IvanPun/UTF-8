@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指定该映射文件的命名空间（对应哪个mapper）-->
+<mapper namespace="alex.UTFProject.mapper.UserMapper">
+    <select id="getAllUser" resultType="alex.UTFProject.entity.User">
+        SELECT * FROM user;
+    </select>
+    <select id="insertUser" resultType="alex.UTFProject.entity.User">
+        INSERT INTO user(name,password,email,access) values (#{name},#{password},#{email},0);
+    </select>
+    <select id="deleteUser" resultType="alex.UTFProject.entity.User">
+        DELETE from user where name=#{name} and password=#{password};
+    </select>
+    <select id="changeUserPassword" resultType="alex.UTFProject.entity.User">
+        UPDATE user set password=#{newPassword} where name=#{name} and email=#{email};
+    </select>
+    <select id="getAccessByName" resultType="String">
+        SELECT access from user where name=#{name};
+    </select>
+</mapper>
