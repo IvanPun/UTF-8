@@ -39,8 +39,8 @@ div {
     display: flex;
     background-color: rgba(235, 236, 243, 0.3);
     width: 80%;
-    height: 400px;
-    margin: auto;
+    height: 70%;
+    margin: 5% auto;
 }
 .description ul li {
     list-style: none;
