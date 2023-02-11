@@ -3,7 +3,7 @@ $("#login").click(function(){
     var name=$("#logname").val();
     var password=$('#logpass').val();
     if (name!="" && password!="") {
-        const Url='http://2b87aafb.r2.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://2b87aafb.r2.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "GET",
