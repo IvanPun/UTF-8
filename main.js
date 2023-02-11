@@ -12,15 +12,16 @@ $(document).ready(function(){
                 if(result=="登录成功"){
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
-                    location.href=("index.html");
                   }else{
                     localStorage.setItem("name", "");
                     localStorage.setItem("password", "");
+                    location.href=("login.html");
                   }
             }
         })
     }else{
         localStorage.setItem("name", "");
         localStorage.setItem("password", "");
+        location.href=("login.html");
     }
 })
