@@ -45,16 +45,14 @@ $(document).ready(function(){
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
                     location.href=("index.html");
-                  }else if(result=="你的密码错误"){
-                    location.href=("login.html");
+                  }else{
                     localStorage.setItem("name", "");
                     localStorage.setItem("password", "");
-                  }else if(result=="该用户不存在"){
-                    localStorage.setItem("name", "");
-                    localStorage.setItem("password", "");
-                    location.href=("login.html");
                   }
             }
         })
+    }else{
+        localStorage.setItem("name", "");
+        localStorage.setItem("password", "");
     }
 })

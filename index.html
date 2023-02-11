@@ -1,33 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_CN">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
-    <link rel="stylesheet" href="main.css">
-    <title>UTF-8</title>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <title>member</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="member.css">
+    <meta name="referrer" content="never">
 </head>
+ 
 <body>
-
-    <div id="example">
-        <div class="section"><h1>A</h1></div>
-        <div class="section"><h1>B</h1></div>
-        <div class="section"><h1>C</h1></div>
-        <div class="section"><h1>D</h1></div>
+    <div id="wrap">
+        <div id="main">
+            <ul id="pageUl" type="circle">
+                <li id="pageUlLi1" class="pageUlLi" style="color: green;">&nbsp;</li>
+                <li id="pageUlLi2" class="pageUlLi">&nbsp;</li>
+                <li id="pageUlLi3" class="pageUlLi">&nbsp;</li>
+            </ul>
+            <div style="background-color: #a0c8a5" id="page1" class="page">
+              <div class="nav">
+                <div class="title">UTF-8</div>
+            </div>
+              <div class="container">
+                <div class="description" id="member1">
+                    
+                </div>
+                <div class="picture" id="picture1"> 
+                    
+                </div>
+            </div>
+          </div>
+            <div style="background-color: #5cb85c" id="page2" class="page">
+              <div class="nav">
+                <div class="title">UTF-8</div>
+            </div>
+              <div class="container">
+                <div class="description" id="member2">
+                    
+                </div>
+                <div class="picture" id="picture2"> 
+                    
+                </div>
+            </div>
+            </div>
+            <div style="background-color: #5ab382" id="page3" class="page">
+              <div class="nav">
+                <div class="title">UTF-8</div>
+            </div>
+              <div class="container">
+                <div class="description" id="member3">
+                    
+                </div>
+                <div class="picture" id="picture3"> 
+                  
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/scrolloverflow.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="login.js"></script>
-<script>
-    $( "#example" ).fullpage({
-  		// 參數設定[註1]
-  		navigation: false, // 顯示導行列
-  		navigationPosition: "right" // 導行列位置
-  	});
+<script type="text/javascript">
+    //改变窗口大小时调整图片大小
+    window.onload = resizeImages;
+    window.onresize = resizeImages;
+ 
+    function resizeImages() {
+        $(function (e) {
+            var screenWeight = document.documentElement.clientWidth;
+            var screenHeight = document.documentElement.clientHeight;
+            $("[name=pageImg]").css("width", screenWeight).css("height", screenHeight);
+            $("#pageUl").css("bottom", screenHeight >> 1);
+        });
+    }
+ 
+    var index = 1;
+    var curIndex = 1;
+    var wrap = document.getElementById("wrap");
+    var main = document.getElementById("main");
+    var hei = document.body.clientHeight;
+    wrap.style.height = hei + "px";
+    var obj = document.getElementsByTagName("div");
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i].className == 'page') {
+            obj[i].style.height = hei + "px";
+        }
+    }
+    var pageNum = document.querySelectorAll(".page").length;
+    //如果不加时间控制，滚动会过度灵敏，一次翻好几屏
+    var startTime = 0, //翻屏起始时间  
+        endTime = 0,
+        now = 0;
+    //浏览器兼容      
+    if ((navigator.userAgent.toLowerCase().indexOf("firefox") != -1)) {
+        document.addEventListener("DOMMouseScroll", scrollFun, false);
+    } else if (document.addEventListener) {
+        document.addEventListener("mousewheel", scrollFun, false);
+    } else if (document.attachEvent) {
+        document.attachEvent("onmousewheel", scrollFun);
+    } else {
+        document.onmousewheel = scrollFun;
+    }
+ 
+    //滚动事件处理函数
+    function scrollFun(event) {
+        startTime = new Date().getTime();
+        var delta = event.detail || (-event.wheelDelta);
+        //mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动
+        //DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动
+        if ((endTime - startTime) < -1000) {
+            if (delta > 0 && parseInt(main.offsetTop) > -(hei * (pageNum - 1))) {
+                //向下滚动
+                index++;
+                toPage(index);
+            }
+            if (delta < 0 && parseInt(main.offsetTop) < 0) {
+                //向上滚动
+                index--;
+                toPage(index);
+            }
+            endTime = new Date().getTime();
+        } else {
+            
+        }
+    }
+ 
+  
+     function toPage(idx) {
+        //jquery实现动画效果
+        if(idx!=curIndex){
+			index=idx
+            var delta=idx - curIndex;
+            now = now - delta * hei;        
+            $("#main").animate({
+                top: (now + 'px')
+            }, 500);
+            curIndex = idx;
+            //更改列表的选中项
+            $(".pageUlLi").css("color", "black");
+            $("#pageUlLi" + idx).css("color", "green");
+			
+        }
+    }
+
+	//鼠标点击翻页
+	document.getElementById("pageUlLi1").onclick = function () {
+	    toPage(1);
+	}
+	document.getElementById("pageUlLi2").onclick = function () {
+	    toPage(2);
+	}
+	document.getElementById("pageUlLi3").onclick = function () {
+	    toPage(3);
+	}
 </script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ <script>
+    $.ajax({
+		method: 'get',
+        url: 'http://2b87aafb.r2.cpolar.top/getMemberById/1',
+        success: function(res) {
+            console.log(res)
+            let member1 = '';
+            member1 +=`<ul>
+                        <li>姓名：${res.name}</li>
+                        <li>联系方式：${res.contact_way}</li>
+                        <li>兴趣爱好：${res.hobby}</li>
+                        <li>个性签名：${res.signature}</li>
+                        <li>个人网页：${res.web}</li>
+                    </ul>`;
+            document.getElementById('member1').innerHTML = member1;
+            let picture1 = '';
+            picture1 += `<img src="${res.picUrl}" title="${res.name}" alt="${res.name}">`;
+            document.getElementById('picture1').innerHTML = picture1;
+        }
+	});
+    $.ajax({
+		method: 'get',
+        url: 'http://2b87aafb.r2.cpolar.top/getMemberById/2',
+        success: function(res) {
+            console.log(res)
+            let member1 = '';
+            member1 +=`<ul>
+                        <li>姓名：${res.name}</li>
+                        <li>联系方式：${res.contact_way}</li>
+                        <li>兴趣爱好：${res.hobby}</li>
+                        <li>个性签名：${res.signature}</li>
+                        <li>个人网页：${res.web}</li>
+                    </ul>`;
+            document.getElementById('member2').innerHTML = member1;
+            let picture2 = '';
+            picture2 += `<img src="${res.picUrl}" title="${res.name}" alt="${res.name}">`;
+            document.getElementById('picture2').innerHTML = picture2;
+        }
+	});
+    $.ajax({
+		method: 'get',
+        url: 'http://2b87aafb.r2.cpolar.top/getMemberById/3',
+        success: function(res) {
+            console.log(res)
+            let member1 = '';
+            member1 +=`<ul>
+                        <li>姓名：${res.name}</li>
+                        <li>联系方式：${res.contact_way}</li>
+                        <li>兴趣爱好：${res.hobby}</li>
+                        <li>个性签名：${res.signature}</li>
+                        <li>个人网页：${res.web}</li>
+                    </ul>`;
+            document.getElementById('member3').innerHTML = member1;
+            let picture3 = '';
+            picture3 += `<img src="${res.picUrl}" title="${res.name}" alt="${res.name}">`;
+            document.getElementById('picture3').innerHTML = picture3;
+        }
+	});
+
+    
+ </script>
 </html>
