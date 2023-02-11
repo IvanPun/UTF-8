@@ -25,3 +25,11 @@ $(document).ready(function(){
         location.href=("login.html");
     }
 })
+
+//logout
+$(".logout").click(function(){
+    localStorage.setItem("name", "");
+    localStorage.setItem("password", "");
+    alert("登出成功!");
+    location.href=("login.html");
+})
