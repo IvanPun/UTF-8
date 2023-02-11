@@ -35,7 +35,7 @@ $(document).ready(function(){
     var name=localStorage.getItem("name");
     var password=localStorage.getItem("password");
     if(name!=""&&password!=""){
-        const Url='http://2b87aafb.r2.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://2b87aafb.r2.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "GET",
