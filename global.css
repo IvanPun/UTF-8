@@ -9,7 +9,7 @@ body {
     background-color:hsl(100, 26%, 67%, 0.6);
     top:0;
     position:relative;
-    overflow:hidden;
+    overflow: hidden;
 }
 .title {
     color: white;
@@ -19,5 +19,16 @@ body {
     height: 70px;
     margin-left: 40px;
     margin-top: 15px;
+    float: left;
 }
 
+.logout{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    width: 10%;
+    height: 70px;
+    margin-top: 20px;
+    float: right;
+    cursor: pointer;
+}
