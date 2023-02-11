@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh_CN">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
     <title>member</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="member.css">
+    <meta name="referrer" content="never">
 </head>
  
 <body>
@@ -17,71 +18,43 @@
                 <li id="pageUlLi1" class="pageUlLi" style="color: green;">&nbsp;</li>
                 <li id="pageUlLi2" class="pageUlLi">&nbsp;</li>
                 <li id="pageUlLi3" class="pageUlLi">&nbsp;</li>
-                <li id="pageUlLi4" class="pageUlLi">&nbsp;</li>
             </ul>
             <div style="background-color: #a0c8a5" id="page1" class="page">
-                <div class="nav" style="background-color: #a4c196;">
-                  <div class="title">UTF-8</div>
-              </div>
-                <div>
-                  <h1 class="welcome">Welcome To</h1>
-                  <h1 class="pageName">UTF-8</h1>
-              </div>
-            </div>
-            <div style="background-color: #a0c8a5" id="page2" class="page">
               <div class="nav">
                 <div class="title">UTF-8</div>
             </div>
               <div class="container">
-                <div class="description">
-                    <ul>
-                        <li>姓名：</li>
-                        <li>联系方式：</li>
-                        <li>兴趣爱好：</li>
-                        <li>个性签名：</li>
-                        <li>个人网页：</li>
-                    </ul>
+                <div class="description" id="member1">
+                    
                 </div>
-                <div class="picture"> 
-                    <img src="pic/picture1.jpg" title="member1">
+                <div class="picture" id="picture1"> 
+                    
                 </div>
             </div>
           </div>
-            <div style="background-color: #5cb85c" id="page3" class="page">
+            <div style="background-color: #5cb85c" id="page2" class="page">
               <div class="nav">
                 <div class="title">UTF-8</div>
             </div>
               <div class="container">
-                <div class="description">
-                    <ul>
-                        <li>姓名：</li>
-                        <li>联系方式：</li>
-                        <li>兴趣爱好：</li>
-                        <li>个性签名：</li>
-                        <li>个人网页：</li>
-                    </ul>
+                <div class="description" id="member2">
+                    
                 </div>
-                <div class="picture"> 
-                    <img src="pic/picture2.jpg" title="member2">
+                <div class="picture" id="picture2"> 
+                    
                 </div>
             </div>
             </div>
-            <div style="background-color: #5ab382" id="page4" class="page">
+            <div style="background-color: #5ab382" id="page3" class="page">
               <div class="nav">
                 <div class="title">UTF-8</div>
             </div>
               <div class="container">
-                <div class="description">
-                    <ul>
-                        <li>姓名：</li>
-                        <li>联系方式：</li>
-                        <li>兴趣爱好：</li>
-                        <li>个性签名：</li>
-                        <li>个人网页：</li>
-                    </ul>
+                <div class="description" id="member3">
+                    
                 </div>
-                <div class="picture"> 
-                    <img src="pic/picture3.jpg" title="member3">
+                <div class="picture" id="picture3"> 
+                  
                 </div>
             </div>
             </div>
@@ -149,7 +122,7 @@
             }
             endTime = new Date().getTime();
         } else {
-            event.preventDefault();
+            
         }
     }
  
@@ -181,9 +154,67 @@
 	document.getElementById("pageUlLi3").onclick = function () {
 	    toPage(3);
 	}
-    document.getElementById("pageUlLi4").onclick = function () {
-	    toPage(4);
-	}
 </script>
- 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ <script>
+    $.ajax({
+		method: 'get',
+        url: 'http://2b87aafb.r2.cpolar.top/getMemberById/1',
+        success: function(res) {
+            console.log(res)
+            let member1 = '';
+            member1 +=`<ul>
+                        <li>姓名：${res.name}</li>
+                        <li>联系方式：${res.contact_way}</li>
+                        <li>兴趣爱好：${res.hobby}</li>
+                        <li>个性签名：${res.signature}</li>
+                        <li>个人网页：${res.web}</li>
+                    </ul>`;
+            document.getElementById('member1').innerHTML = member1;
+            let picture1 = '';
+            picture1 += `<img src="${res.picUrl}" title="${res.name}" alt="${res.name}">`;
+            document.getElementById('picture1').innerHTML = picture1;
+        }
+	});
+    $.ajax({
+		method: 'get',
+        url: 'http://2b87aafb.r2.cpolar.top/getMemberById/2',
+        success: function(res) {
+            console.log(res)
+            let member1 = '';
+            member1 +=`<ul>
+                        <li>姓名：${res.name}</li>
+                        <li>联系方式：${res.contact_way}</li>
+                        <li>兴趣爱好：${res.hobby}</li>
+                        <li>个性签名：${res.signature}</li>
+                        <li>个人网页：${res.web}</li>
+                    </ul>`;
+            document.getElementById('member2').innerHTML = member1;
+            let picture2 = '';
+            picture2 += `<img src="${res.picUrl}" title="${res.name}" alt="${res.name}">`;
+            document.getElementById('picture2').innerHTML = picture2;
+        }
+	});
+    $.ajax({
+		method: 'get',
+        url: 'http://2b87aafb.r2.cpolar.top/getMemberById/3',
+        success: function(res) {
+            console.log(res)
+            let member1 = '';
+            member1 +=`<ul>
+                        <li>姓名：${res.name}</li>
+                        <li>联系方式：${res.contact_way}</li>
+                        <li>兴趣爱好：${res.hobby}</li>
+                        <li>个性签名：${res.signature}</li>
+                        <li>个人网页：${res.web}</li>
+                    </ul>`;
+            document.getElementById('member3').innerHTML = member1;
+            let picture3 = '';
+            picture3 += `<img src="${res.picUrl}" title="${res.name}" alt="${res.name}">`;
+            document.getElementById('picture3').innerHTML = picture3;
+        }
+	});
+
+    
+ </script>
 </html>
