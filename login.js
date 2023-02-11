@@ -60,9 +60,12 @@ $(document).ready(function(){
 
 //register
 $("#register").click(function(){
-    var name=$("#logname").val();
-    var email=$("#logemail").val();
-    var password=$('#logpass').val();
+    var name=$("#regname").val();
+    var email=$("#regemail").val();
+    var password=$('#regpass').val();
+    console.log(name);
+    console.log(email);
+    console.log(password);
     if (name!="" && password!=""&&email!="") {
         const Url='https://2b87aafb.r2.cpolar.top/InsertUser/'+name+'/'+password+'/'+email;
         $.ajax({
@@ -70,21 +73,24 @@ $("#register").click(function(){
             type: "GET",
             success:function(result){
                 console.log(result);
-                if(result=="注册成功!"){
+                if(result=="用户名重复"){
+                    $("#register-warning").html("<h5>用户名重复</h5>");
+                }else if(result=="邮箱重复"){
+                    $("#register-warning").html("<h5>邮箱重复</h5>");
+                }else{
                     localStorage.setItem("name", name);
                     localStorage.setItem("password", password);
                     alert("welcome!");
                     location.href=("index.html");
-                }else if(result=="用户名重复"){
-                    $("#warning").html("<h5>用户名重复</h5>");
                 }
+                
             }
         })
-    }else if(name==''&&password==''){
-        $("#warning").html("<h5>用戶名和密码都不能空缺！</h5>");
-      }else if(name==''){
-        $("#warning").html("<h5>用戶名不能空缺！</h5>");
+    }else if(name==''){
+        $("#register-warning").html("<h5>用戶名不能空缺！</h5>");
+      }else if(email==''){
+        $("#register-warning").html("<h5>邮箱不能空缺！</h5>");
       }else{
-        $("#warning").html("<h5>密码不能空缺！</h5>");
+        $("#register-warning").html("<h5>密码不能空缺！</h5>");
       }
 })

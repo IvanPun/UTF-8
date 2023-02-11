@@ -292,3 +292,9 @@ h6 span{
   text-align: start;
   color:red;
 }
+
+#register-warning{
+  margin-top: 5%;
+  text-align: start;
+  color:red;
+}
