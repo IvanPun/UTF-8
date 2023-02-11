@@ -286,3 +286,9 @@ h6 span{
 	width: auto;
 	display: block;
 }
+
+#warning{
+  margin-top: 5%;
+  text-align: start;
+  color:red;
+}

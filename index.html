@@ -22,19 +22,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/scrolloverflow.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script><script  src="login.js"></script>
 <script>
     $( "#example" ).fullpage({
   		// 參數設定[註1]
   		navigation: false, // 顯示導行列
   		navigationPosition: "right" // 導行列位置
   	});
-
-    $.ajax({
-        type: "get",
-        url: 'http://2b87aafb.r2.cpolar.top/getMemberNameById/2',
-        success: function(data){
-            console.log(data)
-        }
-    })
 </script>
 </html>
