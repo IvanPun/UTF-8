@@ -2,7 +2,7 @@ $("#imgs>img").click(function(){
     checkImg($(this).attr("src"));
 });
 
-var imgs = ["img/jiandao.png","img/shitou.png","img/bu.png"];
+var imgs = ["jiandao.png","shitou.png","bu.png"];
 function checkImg(imgSrc){
 $("#myImg").attr("src",imgSrc);
 var id = setInterval(function(){
