@@ -6,7 +6,7 @@ function play(){
         var name=localStorage.getItem("name");
         $.ajax({
             method: "get",
-            url: "https://5db55609.r7.cpolar.top/getScoreByName/"+name,
+            url: "https://20213229.r7.cpolar.top/getScoreByName/"+name,
             success:function(res){
                 var yourScore = res;
                 console.log(yourScore);
@@ -17,7 +17,7 @@ function play(){
         if(id==1||id==2||id==3){
             $.ajax({
                 method: "get",
-                url: "https://5db55609.r7.cpolar.top/getMemberScoreById/"+id,
+                url: "https://20213229.r7.cpolar.top/getMemberScoreById/"+id,
                 success:function(res){
                     var memberScore = res;
                     console.log("对方的积分为",memberScore);
@@ -27,7 +27,7 @@ function play(){
             var number = +prompt("请输入石头，剪刀，或布，分别对应1，2，3");
             $.ajax({
                 method: "get",
-                url: "https://5db55609.r7.cpolar.top/userPlay/"+name+"/"+id+"/"+number,
+                url: "https://20213229.r7.cpolar.top/userPlay/"+name+"/"+id+"/"+number,
                 success:function(res){
                     console.log(res);
                     alert(res);
