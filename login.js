@@ -67,7 +67,7 @@ $("#register").click(function(){
     console.log(email);
     console.log(password);
     if (name!="" && password!=""&&email!="") {
-        const Url='https://5db55609.r7.cpolar.top/InsertUser/'+name+'/'+password+'/'+email;
+        const Url='https://20213229.r7.cpolar.top/InsertUser/'+name+'/'+password+'/'+email;
         $.ajax({
             url: Url,
             type: "GET",
