@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--指定该映射文件的命名空间（对应哪个mapper）-->
+<mapper namespace="alex.UTFProject.mapper.MemberMapper">
+    <select id="changeMemberNameById" resultType="String">
+        UPDATE utfinfo SET name=#{name} WHERE id=#{id};
+    </select>
+    <select id="changeMemberSignatureById" resultType="String">
+        UPDATE utfinfo SET signature=#{signature} WHERE id=#{id};
+    </select>
+    <select id="changeMemberContact_WayById" resultType="String">
+        UPDATE utfinfo SET contact_way=#{contact_way} WHERE id=#{id};
+    </select>
+    <select id="changeMemberHobbyById" resultType="String">
+        UPDATE utfinfo SET hobby=#{hobby} WHERE id=#{id};
+    </select>
+    <select id="changeMemberPicUrlById" resultType="String">
+        UPDATE utfinfo SET picUrl=#{picUrl} WHERE id=#{id};
+    </select>
+    <select id="changeMemberWebById" resultType="String">
+        UPDATE utfinfo SET web=#{web} WHERE id=#{id};
+    </select>
+    <select id="getMemberById" resultType="alex.UTFProject.entity.Member">
+        SELECT id,name,signature,contact_way,hobby,picurl,web FROM utfinfo WHERE id=#{id};
+    </select>
+    <select id="getMemberScoreById" resultType="Int">
+        SELECT score from utfinfo where id=#{id};
+    </select>
+</mapper>
