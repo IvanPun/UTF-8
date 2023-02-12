@@ -32,3 +32,17 @@ body {
     float: right;
     cursor: pointer;
 }
+
+button {
+    background-color: #a0c8a5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    width: 15%;
+    padding: 5px;
+    margin-top: 15px;
+    margin-right: 20px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
