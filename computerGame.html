@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="computerGame.css">
+</head>
+<body>
+    <div id="body">
+        <div id="tips">
+            请选择
+        </div>
+
+        <div id="imgs">
+            <img src="img/jiandao.png" id="jiandao" onclick="jianDao()"class="img1">
+            <img src="img/shitou.png" id="shitou" onclick="shiTou()"class="img1">
+            <img src="img/bu.png" id="bu" onclick="bu()" class="img1">
+        </div>
+
+        <div id="jieguo">
+            <div class="jieguo">
+                <div>您选择了</div>
+                <img src="img/daiding.png" id="myImg" />
+            </div>
+
+            <div class="pk">PK</div>
+
+            <div class="jieguo">
+                <div>系统选择了</div>
+                <img src="img/daiding.png" id="computer" />
+            </div>
+        </div>
+
+        <div id="score">
+            等待结果中....
+        </div>
+
+        <div id="scoreFen">
+            <span>00</span>：<span>00</span>
+        </div>
+    </div>
+    <button onclick="back()">返回</button>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="computerGame.js"></script>
+</body>
+</html>
