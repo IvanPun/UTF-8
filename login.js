@@ -3,7 +3,7 @@ $("#login").click(function(){
     var name=$("#logname").val();
     var password=$('#logpass').val();
     if (name!="" && password!="") {
-        const Url='https://20213229.r7.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://3a60cb8f.r8.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "GET",
@@ -35,7 +35,7 @@ $(document).ready(function(){
     var name=localStorage.getItem("name");
     var password=localStorage.getItem("password");
     if(name!=""&&password!=""){
-        const Url='https://20213229.r7.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='https://3a60cb8f.r8.cpolar.top/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
             type: "GET",
@@ -67,7 +67,7 @@ $("#register").click(function(){
     console.log(email);
     console.log(password);
     if (name!="" && password!=""&&email!="") {
-        const Url='https://20213229.r7.cpolar.top/InsertUser/'+name+'/'+password+'/'+email;
+        const Url='https://3a60cb8f.r8.cpolar.top/InsertUser/'+name+'/'+password+'/'+email;
         $.ajax({
             url: Url,
             type: "GET",
