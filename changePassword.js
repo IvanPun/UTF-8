@@ -4,10 +4,10 @@ $("#change").click(function(){
     var password=$('#logpass').val();
     var email=$('#logemail').val();
     if (name!="" && password!=""&& email!="") {
-        const Url='https://3a60cb8f.r8.cpolar.top/changeUserPassword/'+name+'/'+email+'/'+password;
+        const Url='http://124.71.207.55:8081/changeUserPassword/'+name+'/'+email+'/'+password;
         $.ajax({
             url: Url,
-            type: "GET",
+            type: "POST",
             success:function(result){
                 console.log(result);
                 if(result=="用户名或邮箱不正确"){

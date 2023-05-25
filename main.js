@@ -3,10 +3,10 @@ $(document).ready(function(){
     var name=localStorage.getItem("name");
     var password=localStorage.getItem("password");
     if(name!=""&&password!=""){
-        const Url='https://3a60cb8f.r8.cpolar.top/userLogin/'+name+'/'+password;
+        const Url='http://124.71.207.55:8081/userLogin/'+name+'/'+password;
         $.ajax({
             url: Url,
-            type: "GET",
+            type: "POST",
             success:function(result){
                 console.log(result);
                 if(result=="登录成功"){
